@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'MyCustomFont';
-    src: url('MyCustomFont.woff2') format('woff2'),
-         url('MyCustomFont.woff') format('woff'); /* به روز رسانی فرمت‌ها */
+    src: url('MyCustomFont.ttf') format('woff2'),
+         url('MyCustomFont.ttf') format('woff'); /* به روز رسانی فرمت‌ها */
     font-weight: normal;
     font-style: normal;
 }
