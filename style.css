@@ -160,7 +160,6 @@ nav a:focus,
     outline: 2px solid #ff4081; /* اضافه کردن outline برای دسترسی‌پذیری */
     outline-offset: 2px;
 }
-
 .artist-name {
     font-size: 1.1em;
     color: #f0f0f0;
@@ -178,4 +177,20 @@ nav a:focus,
 
 .telegram-link:hover {
     color: #c8102e;
+}
+.telegram-link {
+    color: #ff4081; /* رنگ پیش‌فرض لینک تلگرام */
+    font-size: 1em;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+    transition: color 0.3s ease; /* انیمیشن تغییر رنگ */
+}
+
+.telegram-link:hover {
+    color: #c8102e; /* رنگ وقتی موس روی لینک است */
+}
+
+.telegram-link:active {
+    color: #a50f24; /* رنگ وقتی لینک کلیک شده است */
 }
