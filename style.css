@@ -6,12 +6,12 @@
     font-style: normal;
 }
 
-/* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'MyCustomFont', Arial, sans-serif;
-}*/
+}
 
 body {
     background-color: #121212;
