@@ -36,11 +36,12 @@ app.post('/upload', upload.single('musicFile'), (req, res) => {
 
     // ارسال ایمیل به شما برای بررسی موزیک
     const mailOptions = {
-        from: 'your-email@gmail.com',
-        to: 'your-email@gmail.com', // آدرس ایمیل شما
+        from: 'codshadow.official@gmail.com',
+        to: 'codshadow.official@gmail.com', // آدرس ایمیل شما
         subject: 'موزیک جدید بارگذاری شده',
         text: `عنوان موزیک: ${musicTitle}\nفایل موزیک: ${filePath}`
     };
+    
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
