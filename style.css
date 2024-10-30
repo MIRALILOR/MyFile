@@ -179,7 +179,7 @@ nav a:focus,
     color: #c8102e;
 }
 .telegram-link {
-    color: black; /* رنگ پیش‌فرض لینک تلگرام */
+    color: #ff4081; /* رنگ پیش‌فرض لینک تلگرام */
     font-size: 1em;
     text-decoration: none;
     display: inline-block;
