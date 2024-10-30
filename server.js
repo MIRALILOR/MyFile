@@ -21,8 +21,8 @@ const upload = multer({ storage: storage });
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'your-email@gmail.com', // آدرس ایمیل خود را اینجا وارد کنید
-        pass: 'your-email-password' // رمز عبور ایمیل خود را اینجا وارد کنید
+        user: 'codshadow.official@gmail.com', // آدرس ایمیل خود را اینجا وارد کنید
+        pass: 'amirali.2086' // رمز عبور ایمیل خود را اینجا وارد کنید
     }
 });
 
