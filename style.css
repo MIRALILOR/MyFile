@@ -194,3 +194,7 @@ nav a:focus,
 .telegram-link:active {
     color: #a50f24; /* رنگ وقتی لینک کلیک شده است */
 }
+
+.telegram-chanel-link {
+    color: #ffffff;
+}
