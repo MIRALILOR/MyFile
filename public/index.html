@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بارگذاری موزیک</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>بارگذاری موزیک</h1>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h2>موزیک خود را بارگذاری کنید</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <label for="musicTitle">عنوان موزیک:</label>
+                <input type="text" id="musicTitle" name="musicTitle" required>
+
+                <label for="musicFile">فایل موزیک:</label>
+                <input type="file" id="musicFile" name="musicFile" accept="audio/*" required>
+
+                <button type="submit">بارگذاری موزیک</button>
+            </form>
+            <div id="message"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 موزیک بارگذاری شده توسط کاربران.</p>
+    </footer>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
+            
+            const formData = new FormData(this);
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById('message').innerText = 'خطا در بارگذاری موزیک.';
+            });
+        });
+    </script>
+</body>
+</html>
