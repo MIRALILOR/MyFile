@@ -188,7 +188,7 @@ nav a:focus,
 }
 
 .telegram-link:hover {
-    color: #c8102e; /* رنگ وقتی موس روی لینک است */
+    color: black; /* رنگ وقتی موس روی لینک است */
 }
 
 .telegram-link:active {
