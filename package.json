@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "express": "^4.21.1"
-  }
+  },
+  "name": "myfile",
+  "version": "1.0.0",
+  "description": "Shadow Rap Welcome to Shadow Rap, your ultimate destination for the freshest Persian rap music! 🎶",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
