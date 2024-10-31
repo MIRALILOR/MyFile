@@ -18,8 +18,9 @@ body {
     background-color: #121212;
     color: #f0f0f0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column; /* تغییر به عمودی */
+    align-items: center; /* مرکز کردن افقی */
+    justify-content: center; /* مرکز کردن عمودی */
     min-height: 100vh;
     margin: 0;
 }
