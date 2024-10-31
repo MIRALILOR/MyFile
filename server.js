@@ -1,58 +1,45 @@
 const express = require('express');
 const multer = require('multer');
-const nodemailer = require('nodemailer');
-const path = require('path');
-const app = express();
+const axios = require('axios');
+
+const app = express(); // تعریف app
 const port = 3000;
 
-// تنظیمات Multer
+// تنظیمات Multer برای ذخیره فایل‌های آپلودی
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads/');
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname)); // اضافه کردن timestamp به نام فایل
+        cb(null, Date.now() + '-' + file.originalname);
     }
 });
 
 const upload = multer({ storage: storage });
 
-// تنظیمات ارسال ایمیل
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'codshadow.official@gmail.com', // آدرس ایمیل خود را اینجا وارد کنید
-        pass: 'amirali.2086' // رمز عبور ایمیل خود را اینجا وارد کنید
+app.use(express.json());
+app.use(express.static('public'));
+
+// مسیر بارگذاری موزیک و ارسال پیام به تلگرام
+app.post('/upload', upload.single('musicFile'), async (req, res) => {
+    const musicTitle = req.body.musicTitle;
+
+    // ارسال پیام به تلگرام
+    const telegramToken = '7901203126:AAHdctO95WMVFgZaqdS0guzrmJURuz4tS3Q';
+    const telegramChatId = '6087657605';
+    const message = `عنوان موزیک: ${musicTitle}`;
+
+    try {
+        await axios.post(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+            chat_id: telegramChatId,
+            text: message
+        });
+        res.status(200).json({ message: 'موزیک شما با موفقیت بارگذاری شد و پیام به تلگرام ارسال شد!' });
+    } catch (error) {
+        res.status(500).json({ message: 'خطا در ارسال پیام به تلگرام.' });
     }
 });
 
-// میدل‌ویر برای سرو کردن فایل‌های استاتیک
-app.use(express.static('public'));
-
-// مسیر بارگذاری موزیک
-app.post('/upload', upload.single('musicFile'), (req, res) => {
-    const musicTitle = req.body.musicTitle;
-    const filePath = req.file.path;
-
-    // ارسال ایمیل به شما برای بررسی موزیک
-    const mailOptions = {
-        from: 'codshadow.official@gmail.com',
-        to: 'amiralimhmdi1386@gmail.com', // آدرس ایمیل شما
-        subject: 'موزیک جدید بارگذاری شده',
-        text: `عنوان موزیک: ${musicTitle}\nفایل موزیک: ${filePath}`
-    };
-    
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return res.status(500).json({ message: 'خطا در ارسال ایمیل.' });
-        }
-        res.status(200).json({ message: 'موزیک شما با موفقیت بارگذاری شد!' });
-    });
-});
-
-// راه‌اندازی سرور
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
-
