@@ -92,3 +92,30 @@ footer {
     width: 100%;
     text-align: center;
 }
+
+/* مدیا کوئری برای موبایل */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .upload-section {
+        padding: 20px;
+    }
+
+    label {
+        font-size: 1em;
+    }
+
+    input[type="text"], input[type="file"], button {
+        font-size: 0.9em;
+    }
+
+    button {
+        padding: 8px 16px;
+    }
+
+    #message {
+        font-size: 1em;
+    }
+}
