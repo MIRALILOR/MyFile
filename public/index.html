@@ -34,20 +34,25 @@
     <script>
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
             event.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
-            
+    
             const formData = new FormData(this);
             fetch('/upload', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('خطا در بارگذاری موزیک. وضعیت: ' + response.status);
+                }
+                return response.json();
+            })
             .then(data => {
                 document.getElementById('message').innerText = data.message;
             })
             .catch(error => {
-                document.getElementById('message').innerText = 'خطا در بارگذاری موزیک.';
+                document.getElementById('message').innerText = error.message;
             });
         });
     </script>
-</body>
+    </body>
 </html>

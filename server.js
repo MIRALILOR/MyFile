@@ -62,3 +62,14 @@ app.post('/upload', upload.single('musicFile'), async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
 });
+
+app.post('/upload', upload.single('musicFile'), async (req, res) => {
+    console.log('Request Body:', req.body); // لاگ اطلاعات بدنه درخواست
+    console.log('Uploaded File:', req.file); // لاگ اطلاعات فایل آپلود شده
+
+    if (!req.file) {
+        return res.status(400).json({ message: 'فایل موزیک پیدا نشد.' });
+    }
+
+    // ادامه کد...
+});
