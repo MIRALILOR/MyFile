@@ -7,9 +7,6 @@
     <meta name="keywords" content="موزیک, دانلود موزیک, Shadow Rap">
     <title>Shadow Rap</title>
     <link rel="stylesheet" href="style.css">
-
-    
-
 </head>
 <body>
     <header>
@@ -19,7 +16,6 @@
             <a href="#">آپلود موزیک</a>
             <a href="#">پلی‌لیست‌ها</a>
         </nav>
-        
     </header>
 
     <main>
@@ -27,7 +23,6 @@
             <h2>همه موزیک‌ها</h2>
             <a href="https://t.me/MiRALi_ViBE" class="telegram-chanel-link">در تلگرام @MiRALi_ViBE موزیک‌های چنل</a>
         </section>
-
 
 <section class="music-gallery">
 
@@ -100,5 +95,52 @@
         <a href="/MyMusic/Sangsar.mp3" download class="download-button">دانلود</a>
     </div>
 </div>
-
 </section>
+</main>
+
+<!-- دکمه بالا برنده -->
+<button id="back-to-top" onclick="scrollToTop()">↑</button>
+
+<script>
+    // JavaScript برای عملکرد بالا برنده
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // نمایش یا مخفی کردن دکمه بر اساس اسکرول
+    window.onscroll = function() {
+        const backToTopButton = document.getElementById("back-to-top");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    };
+</script>
+
+<style>
+    /* استایل دکمه بالا برنده */
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none; /* به صورت پیش‌فرض مخفی است */
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+    }
+
+    #back-to-top:hover {
+        background-color: #555;
+    }
+</style>
+</body>
+</html>
