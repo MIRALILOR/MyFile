@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Shadow Rap: جدیدترین موزیک‌ها">
     <meta name="keywords" content="موزیک, دانلود موزیک, Shadow Rap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+
     <title>Shadow Rap</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -43,6 +45,45 @@
         </section>
         <script src="script.js"></script>        
          
+
+
+<script>
+    function copyPassword() {
+        var passwordField = document.getElementById('zip-password');
+        passwordField.select();
+        passwordField.setSelectionRange(0, 99999); // برای موبایل
+        document.execCommand('copy');
+        alert('رمز فایل زیپ کپی شد!');
+    }
+
+    async function downloadAlbumZip() {
+        const zip = new JSZip();
+
+        // اضافه کردن آهنگ‌ها به فایل زیپ
+        const files = [
+            { name: "Khoone Khorshid.mp3", url: "/MyMusic/Khoone Khorshid.mp3" },
+            { name: "Mahlake.mp3", url: "/MyMusic/Mahlake.mp3" },
+            { name: "Gorgo Mish.mp3", url: "/MyMusic/Gorgo Mish.mp3" },
+            { name: "Shere Bidari.mp3", url: "/MyMusic/Shere Bidari.mp3" },
+            { name: "Sangsar.mp3", url: "/MyMusic/Sangsar.mp3" }
+        ];
+
+        // دانلود و اضافه کردن هر آهنگ به فایل زیپ
+        for (let file of files) {
+            const response = await fetch(file.url);
+            const data = await response.blob();
+            zip.file(file.name, data);
+        }
+
+        // تولید و دانلود فایل زیپ
+        zip.generateAsync({ type: "blob" }).then(function(content) {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(content);
+            link.download = "Album_Khoone_Khorshid.zip";
+            link.click();
+        });
+    }
+</script>
 
 
 <section class="music-gallery">
