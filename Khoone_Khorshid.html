@@ -59,32 +59,40 @@
     }
 
     async function downloadAlbumZip() {
-        const zip = new JSZip();
+    const zip = new JSZip();
+    const files = [
+        { name: "Khoone Khorshid.mp3", url: "/MyMusic/Khoone Khorshid.mp3" },
+        { name: "Mahlake.mp3", url: "/MyMusic/Mahlake.mp3" },
+        { name: "Gorgo Mish.mp3", url: "/MyMusic/Gorgo Mish.mp3" },
+        { name: "Shere Bidari.mp3", url: "/MyMusic/Shere Bidari.mp3" },
+        { name: "Sangsar.mp3", url: "/MyMusic/Sangsar.mp3" }
+    ];
 
-        // اضافه کردن آهنگ‌ها به فایل زیپ
-        const files = [
-            { name: "Khoone Khorshid.mp3", url: "MyMusic/Khoone Khorshid.mp3" },
-            { name: "Mahlake.mp3", url: "MyMusic/Mahlake.mp3" },
-            { name: "Gorgo Mish.mp3", url: "MyMusic/Gorgo Mish.mp3" },
-            { name: "Shere Bidari.mp3", url: "MyMusic/Shere Bidari.mp3" },
-            { name: "Sangsar.mp3", url: "MyMusic/Sangsar.mp3" }
-        ];
-
-        // دانلود و اضافه کردن هر آهنگ به فایل زیپ
+    try {
         for (let file of files) {
+            console.log(`در حال دریافت فایل: ${file.name}`);
             const response = await fetch(file.url);
+            if (!response.ok) throw new Error(`خطا در دریافت فایل ${file.name}`);
             const data = await response.blob();
             zip.file(file.name, data);
         }
 
-        // تولید و دانلود فایل زیپ
+        // تولید فایل زیپ
         zip.generateAsync({ type: "blob" }).then(function(content) {
             const link = document.createElement("a");
             link.href = URL.createObjectURL(content);
             link.download = "Album_Khoone_Khorshid.zip";
+            document.body.appendChild(link); // افزودن لینک به صفحه برای مرورگرهای خاص
             link.click();
+            document.body.removeChild(link); // پاک کردن لینک پس از دانلود
+            alert("فایل زیپ با موفقیت آماده دانلود شد!");
         });
+    } catch (error) {
+        console.error("خطا در فرایند دانلود:", error);
+        alert("خطایی در دانلود آلبوم رخ داده است. لطفاً بعداً دوباره امتحان کنید.");
     }
+}
+
 </script>
 
 
