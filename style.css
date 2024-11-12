@@ -4,45 +4,45 @@
          url('MyCustomFont.ttf') format('woff'); /* به روز رسانی فرمت‌ها */
     font-weight: normal;
     font-style: normal;
-}
-
-* {
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'MyCustomFont', Arial, sans-serif;
-}
-
-body {
+  }
+  
+  body {
     background-color: #121212;
     color: #f0f0f0;
-}
-
-header {
+  }
+  
+  header {
     background-color: #c8102e;
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-header h1 {
+  }
+  
+  header h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
-}
-
-nav a {
+  }
+  
+  nav a {
     color: white;
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.2em;
     transition: color 0.3s ease;
-}
-
-nav a:hover {
+  }
+  
+  nav a:hover {
     color: #ff4081;
-}
-
-.hero {
+  }
+  
+  .hero {
     text-align: center;
     padding: 100px 20px;
     background-color: #c8102e;
@@ -50,22 +50,22 @@ nav a:hover {
     border-radius: 10px;
     margin: 20px;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-}
-
-.hero h2 {
+  }
+  
+  .hero h2 {
     font-size: 2.5em;
     margin-bottom: 10px;
-}
-
-.music-gallery {
+  }
+  
+  .music-gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     padding: 50px;
-}
-
-.music-item {
+  }
+  
+  .music-item {
     background-color: #222;
     padding: 20px;
     border-radius: 10px;
@@ -73,29 +73,29 @@ nav a:hover {
     width: 100%;
     max-width: 300px;
     transition: transform 0.3s;
-}
-
-.music-item:hover {
+  }
+  
+  .music-item:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-}
-
-.music-item img {
+  }
+  
+  .music-item img {
     width: 100%;
     max-width: 250px;
     border-radius: 10px;
     margin-bottom: 10px;
-}
-
-.download-container {
+  }
+  
+  .download-container {
     background-color: #c8102e; /* رنگ قرمز */
     padding: 10px;
     border-radius: 5px;
     margin-top: 10px;
     text-align: center;
-}
-
-.download-button {
+  }
+  
+  .download-button {
     background-color: #c8102e; /* رنگ قرمز */
     color: white; /* رنگ متن دکمه */
     padding: 10px 20px;
@@ -104,101 +104,345 @@ nav a:hover {
     font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s; /* انیمیشن تغییر رنگ */
-}
-
-.download-button:hover {
+  }
+  
+  .download-button:hover {
     background-color: #a50f24; /* رنگ تیره‌تر برای حالت hover */
-}
-
-footer {
+  }
+  
+  footer {
     text-align: center;
     padding: 20px;
     background-color: #c8102e;
     position: relative;
     bottom: 0;
     width: 100%;
-}
-
-.telegram-link {
+  }
+  
+  .telegram-link {
     color: white;
     text-decoration: none;
     margin-top: 10px;
     display: inline-block;
-}
-
-.telegram-link:hover {
+  }
+  
+  .telegram-link:hover {
     text-decoration: underline;
-}
-
-audio {
+  }
+  
+  audio {
     width: 100%;
     margin-top: 10px;
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .music-item {
         max-width: 90%; /* تنظیم اندازه برای موبایل */
     }
-
+  
     .hero {
         padding: 50px 10px; /* کاهش padding در نمایشگرهای کوچک */
     }
-
+  
     .music-item img {
         max-width: 100%;
         height: auto;
     }
-
+  
     .music-gallery {
         flex-direction: column;
         align-items: center;
     }
-}
-
-nav a:focus,
-.download-button:focus {
+  }
+  
+  nav a:focus,
+  .download-button:focus {
     outline: 2px solid #ff4081; /* اضافه کردن outline برای دسترسی‌پذیری */
     outline-offset: 2px;
-}
-.artist-name {
+  }
+  .artist-name {
     font-size: 1.1em;
     color: #f0f0f0;
     margin: 5px 0;
-}
-
-.telegram-link {
+  }
+  
+  .telegram-link {
     color: #ff4081;
     font-size: 1em;
     text-decoration: none;
     display: inline-block;
     margin-top: 5px;
     transition: color 0.3s ease;
-}
-
-.telegram-link:hover {
+  }
+  
+  .telegram-link:hover {
     color: #c8102e;
-}
-.telegram-link {
+  }
+  .telegram-link {
     color: #ff4081; /* رنگ پیش‌فرض لینک تلگرام */
     font-size: 1em;
     text-decoration: none;
     display: inline-block;
     margin-top: 5px;
     transition: color 0.3s ease; /* انیمیشن تغییر رنگ */
-}
-
-.telegram-link:hover {
+  }
+  
+  .telegram-link:hover {
     color: #a50f24; /* رنگ وقتی موس روی لینک است */
-}
-
-.telegram-link:active {
+  }
+  
+  .telegram-link:active {
     color: #a50f24; /* رنگ وقتی لینک کلیک شده است */
-}
-
-.telegram-chanel-link {
+  }
+  
+  .telegram-chanel-link {
     color: #ffffff;
-}
-
-.telegram-name-link {
+  }
+  
+  .telegram-name-link {
     color: rgba(0, 0, 0, 0.5);
-}
+  }
+  
+      /* استایل دکمه بالا برنده */
+      #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none; /* به صورت پیش‌فرض مخفی است */
+        width: 40px;
+        height: 40px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+    }
+  
+    #back-to-top:hover {
+        background-color: #555;
+    }
+  
+    .album-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+  }
+  
+  .album-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  }
+  
+  .album-link img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+  }
+  
+  .album-link h3 {
+      font-size: 1.4em;
+      color: #f0f0f0;
+      margin: 10px 0 5px;
+  }
+  
+  .artist-name {
+      font-size: 1.1em;
+      color: #bbb;
+      margin-bottom: 10px;
+  }
+  
+  .download-button {
+      background-color: #c8102e;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+  
+  .download-button:hover {
+      background-color: #a50f24;
+  }
+  
+  .album-details {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  .album-cover img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .album-info h3 {
+    font-size: 1.8em;
+    color: #f0f0f0;
+    margin-bottom: 10px;
+  }
+  
+  .album-info .artist-name {
+    font-size: 1.2em;
+    color: #888;
+    margin-bottom: 20px;
+  }
+  
+  .download-container {
+    margin-bottom: 20px;
+  }
+  
+  .download-button {
+    background-color: #c8102e;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .download-button:hover {
+    background-color: #a50f24;
+  }
+  
+  .zip-password {
+    margin-top: 20px;
+  }
+  
+  .zip-password input {
+    padding: 8px;
+    font-size: 14px;
+    width: 70%;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+  }
+  
+  .copy-password {
+    padding: 8px 15px;
+    background-color: #c8102e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .copy-password:hover {
+    background-color: #a50f24;
+  }
+  
+  @media (max-width: 768px) {
+    .album-details {
+        padding: 20px;
+        max-width: 100%;
+    }
+  
+    .album-cover img {
+        max-width: 100%;
+    }
+  
+    .zip-password input {
+        width: 60%;
+    }
+  }
+  
+  /* new code : */
+  
+  .music-download-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    background-color: #121212;
+  }
+  
+  .music-album-box {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+  }
+  
+  .album-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .album-info {
+    margin-bottom: 20px;
+  }
+  
+  .album-name {
+    font-size: 1.6em;
+    margin: 0;
+    color: #f0f0f0;
+  }
+  
+  .artist-name {
+    font-size: 1.2em;
+    color: #aaa;
+  }
+  
+  .download-section {
+    margin-top: 20px;
+  }
+  
+  .download-section input {
+    padding: 10px;
+    font-size: 1em;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #121212;
+    color: #f0f0f0;
+  }
+  
+  .download-section button {
+    background-color: #c8102e;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .download-section button:hover {
+    background-color: #a50f24;
+  }
+  
+  #download-btn[disabled] {
+    background-color: #555;
+    cursor: not-allowed;
+  }
+  
